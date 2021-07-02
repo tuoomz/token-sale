@@ -34,8 +34,24 @@ module.exports = {
       provider: function() {
           return new HDWalletProvider(process.env.MNEMONIC, "https://goerli.infura.io/v3/0109766d4da04cb5a61da4177b773c9d", MetaMaskAccountIndex )
       },
-      network_id: 5
-      }
+      network_id: 5,
+      gas : 4700000,
+      gasPrice : 1,
+      },
+      testnet: {
+        provider: () => new HDWalletProvider(process.env.MNEMONIC, `https://data-seed-prebsc-1-s1.binance.org:8545`),
+        network_id: 97,
+        confirmations: 10,
+        timeoutBlocks: 500,
+        skipDryRun: true
+      },
+      bsc: {
+        provider: () => new HDWalletProvider(process.env.MNEMONIC, `https://bsc-dataseed1.binance.org`),
+        network_id: 56,
+        confirmations: 10,
+        timeoutBlocks: 500,
+        skipDryRun: true
+      },
 },
   compilers: {    
     solc: {
